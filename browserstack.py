@@ -17,7 +17,9 @@ driver.get("http://www.qa.orcid.org")
 if not "ORCID" in driver.title:
     raise Exception("Unable to load orcid page!")
 driver.implicitly_wait(100)
-elem = driver.find_element_by_id("home-blog-list")
+try: driver.find_element_by_id("home-blog-list")
+except:
+        print ("Unable to load blog")
 print driver.title
 driver.quit()
 
@@ -59,7 +61,9 @@ driver.quit()
 # print driver.title
 # driver.quit()
 
-# check that blog feed loads as well as page contents) the side bar on the home page check nav, check public record ( the one we use for testing pblic record testing check the header nav sign in and register)
+# check that blog feed loads as well as page contents) 
+#the side bar on the home page check nav, check public record 
+#( the one we use for testing public record testing check the header nav sign in and register)
 
 # Using IE 11 visit the follow pages and make sure everything loads
 # 	* https://qa.orcid.org (check that blog feed loads as well as page contents)
